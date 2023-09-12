@@ -6,7 +6,7 @@
 #    By: mamat <mamat@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/06 22:27:24 by mamat             #+#    #+#              #
-#    Updated: 2023/09/11 15:53:15 by mamat            ###   ########.fr        #
+#    Updated: 2023/09/12 22:19:38 by mamat            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CYAN	:= \033[36;1m
 WHITE	:= \033[37;1m
 RESET	:= \033[0m
 
-NAME := main
+NAME := ex00
 
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -g
