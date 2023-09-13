@@ -49,18 +49,28 @@ Fixed Fixed::operator/(const Fixed &f) {
 	return (Fixed(this->toFloat() / f.toFloat()));
 }
 
-Fixed Fixed::operator++( void ) {return *this = *this + 1;} // prefix
+Fixed Fixed::operator++( void ) { // prefix
+	this->nb++;
+	return (*this);
+} 
 
-Fixed Fixed::operator--() {return *this = *this - 1;} // prefix
+Fixed Fixed::operator--() { // prefix
+	this->nb--;
+	return (*this);
+}
 
 Fixed Fixed::operator++(int) { // postfix
-	*this = *this + 1;
-	return (*this -1);
+	Fixed	tmp(*this);
+
+	this->nb++;
+	return (tmp);
 }
 
 Fixed Fixed::operator--(int) { // postfix
-	*this = *this - 1;
-	return (*this + 1);
+	Fixed	tmp(*this);
+
+	this->nb--;
+	return (tmp);
 }
 
 bool Fixed::operator<(const Fixed &f) {return (this->toFloat() < f.toFloat());}
@@ -82,14 +92,12 @@ Fixed Fixed::max(Fixed &a, Fixed &b) {
 	return (b);
 }
 Fixed Fixed::min(const Fixed &a, const Fixed &b) {
-	std::cout << "[const min]";
 	if (a.toFloat() < b.toFloat())
 		return (a);
 	return (b);
 }
 
 Fixed Fixed::max(const Fixed &a, const Fixed &b) {
-	std::cout << "[const max]";
 	if (a.toFloat() > b.toFloat())
 		return (a);
 	return (b);
