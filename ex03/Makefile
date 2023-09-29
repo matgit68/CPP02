@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mamat <mamat@student.42.fr>                +#+  +:+       +#+         #
+#    By: mdjemaa <mdjemaa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/06 22:27:24 by mamat             #+#    #+#              #
-#    Updated: 2023/09/15 16:39:25 by mamat            ###   ########.fr        #
+#    Updated: 2023/09/29 17:07:32 by mdjemaa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,25 +24,24 @@ RESET	:= \033[0m
 
 NAME := ex03
 
-CC := c++
-CFLAGS := -Wall -Wextra -Werror -g
-SANITIZE := -fsanitize=leak
+CXX := c++
+CPPFLAGS := -std=c++98 -Wall -Wextra -Werror -g -fsanitize=address
 
 SRC :=	bsp.cpp\
 		Fixed.cpp\
-		Point.cpp\
 		main.cpp\
+		Point.cpp\
 
 OBJ := $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-.c.o:
-	@printf '$(GREEN)Compiling: $(RESET)$<\n'
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $(<:.c=.o) 
+#.c.o:
+#	@printf '$(GREEN)Compiling: $(RESET)$<\n'
+#	@$(CXX) $(CPPFLAGS) $(INCLUDES) -c $< -o $(<:.c=.o) 
 
 $(NAME): $(OBJ)
-	@$(CC) -std=c++98 $(CFLAGS) $(OBJ) -o $(NAME) $(SANITIZE)
+	@$(CXX)  $(CPPFLAGS) -o $(NAME) $(OBJ)
 	@printf '$(RED)- $(NAME) done -$(RESET)\n'
 
 clean:
