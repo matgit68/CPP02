@@ -15,6 +15,7 @@ public:
 	Fixed(const float f);
 	Fixed(const Fixed &f);
 	~Fixed();
+	
 	Fixed &operator=(const Fixed &f);
 	Fixed operator+(const Fixed &f);
 	Fixed operator-(const Fixed &f);

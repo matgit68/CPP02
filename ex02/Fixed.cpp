@@ -32,7 +32,7 @@ int Fixed::toInt(void) const
 std::ostream &operator<<(std::ostream &out, Fixed const &f)
 	{out << f.toFloat(); return (out);}
 
-//////////////////////////////////////////////////////////////////////////
+///////////////////////////// NEW ////////////////////////////////////
 
 Fixed Fixed::operator+(const Fixed &f)
 	{return (Fixed(this->toFloat() + f.toFloat()));}
@@ -49,12 +49,12 @@ Fixed Fixed::operator/(const Fixed &f) {
 	return (Fixed(this->toFloat() / f.toFloat()));
 }
 
-Fixed Fixed::operator++( void ) { // prefix
+Fixed Fixed::operator++(void) { // prefix
 	this->nb++;
 	return (*this);
 } 
 
-Fixed Fixed::operator--() { // prefix
+Fixed Fixed::operator--(void) { // prefix
 	this->nb--;
 	return (*this);
 }
@@ -73,8 +73,8 @@ Fixed Fixed::operator--(int) { // postfix
 	return (tmp);
 }
 
-bool Fixed::operator<(const Fixed &f) {return (this->toFloat() < f.toFloat());}
-bool Fixed::operator>(const Fixed &f) {return (this->toFloat() > f.toFloat());}
+bool Fixed::operator<(const Fixed &f) {return (toFloat() < f.toFloat());}
+bool Fixed::operator>(const Fixed &f) {return (toFloat() > f.toFloat());}
 bool Fixed::operator<=(const Fixed &f) {return (this->toFloat() <= f.toFloat());}
 bool Fixed::operator>=(const Fixed &f) {return (this->toFloat() >= f.toFloat());}
 bool Fixed::operator!=(const Fixed &f) {return (this->toFloat() != f.toFloat());}
