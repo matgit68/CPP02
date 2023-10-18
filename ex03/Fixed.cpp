@@ -32,7 +32,7 @@ int Fixed::toInt(void) const
 std::ostream &operator<<(std::ostream &out, Fixed const &f)
 	{out << f.toFloat(); return (out);}
 
-//////////////////////////////////////////////////////////////////////////
+////////////////////////////////// //////////////////////////////////
 
 Fixed Fixed::operator+(const Fixed &f)
 	{return (Fixed(this->toFloat() + f.toFloat()));}
